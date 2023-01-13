@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>IOT Python Challenge</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <link rel="stylesheet" href="">
+        <script src="" async defer></script>
+        <style>
+
+          
+          .container-fluid{
+            height:100%;
+            width: 100%;
+            display:grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            row-gap:30px;
+            background-color:#f2eeed;
+        
+        }
+        
+        input[type=text]{
+          border:hidden;
+          width:100%;
+          border-radius:5px;
+          background-color:#dedcdc;
+          height:40px;
+
+        }
+
+        input[type=checkbox]{
+          border:hidden;
+          height:15px;
+          width:30px;
+         
+          border-radius:20px;
+          background-color:#dedcdc;
+         
+
+        }
+
+
+        
+        .tap{
+            width:100%;
+            border:1px solid black;
+        }
+
+        .item{
+          background-color:white;
+        }
+
+        table,td {
+          border: 1px solid black;
+          height:40px;
+         
+        }
+        .tap{
+          width:98%;
+          
+
+        }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="container-fluid">
+          <div class="item">
+
+            
+            
+                <form>
+                    <fieldset disabled>
+                <div class="row" style="margin-top:10px">
+                  <div class="col">
+
+                    <label>Hub<span style="color:red">*</span></label><br>
+                    <input type="text" id="disabledTextInput" value=SOMEHUB ><br>
+                    <label>Supplier<span style="color:red">*</span></label><br>
+                    <input type="text" id="disabledTextInput" value=SOMEID ><br>
+                    <label>Supplier Name</label><br>
+                    <input type="text"  id="disabledTextInput"value=Sunil N >
+                  </div>
+                  <div class="col">
+                    <label>GRN</label><br>
+                    <input type="text"  id="disabledTextInput" value=None >
+                  </div>
+                </div>
+
+              
+              
+            </fieldset>
+            </form>
+            </div>
+
+
+          <div class="item">
+
+            <h1>SKU Summary</h1><br>
+            <h4>SKU Table</h4><br>
+            
+            
+
+              
+                    
+              
+            <table class="tap" align="center"  >
+                <tr>
+                    <td><input type="checkbox" >    No.</td>
+                    <td>SKU</td>
+                    <td>SKU Description</td>
+                    <td>Standard Crate Quantity</td>
+                    <td>Procured Quantity</td>
+                  </tr>
+                  
+                  <tr>
+                    <td><input type="checkbox" >    1</td>
+                    <td><b>10000298</b></td>
+                    <td>Mango Banganapalli 1 kg</td>
+                    <td align="right">18000</td>
+                    <td align="right"><b>36190</b></td>
+                  </tr>
+            </table>
+                
+                
+            
+            
+        </div>
+
+
+          <div class="item" >
+
+
+            <h1>Crate List </h1><br>
+            <h4>Crate Table</h4>
+            <br>
+            
+            
+
+            
+            
+            
+             
+            
+            <table class="tap" align="center">
+              
+                <tr>
+                    <td><input type="checkbox"  style="background-color:#d4d1cb">   No.</td>
+                    <td>Crate</td>
+                    <td>SKU</td>
+                    <td>Packed Quantity</td>
+                    <td>Crate Weight</td>
+                    <td>Is Final Crate</td>
+                  </tr>
+                    
+                    
+                  <tr>
+                    <td><input type="checkbox" style="background-color:#d4d1cb" >   1</td>
+                    <td><b>3e410b75b4</b></td>
+                    <td>10000298</td>
+                    <td align="right">18100</td>
+                    <td align="right">18100</td>
+                    <td>0</td>
+                  </tr>
+                    
+                  <tr>
+                    <td><input type="checkbox" style="background-color:#d4d1cb" >   2</td>
+                    <td><b>7c2eba029c</b></td>
+                    <td>10000298</td>
+                    <td align="right">18090</td>
+                    <td align="right">18090</td>
+                    <td>0</td>
+                  </tr>
+                  
+                </table>
+                    
+                
+               
+            
+
+
+
+
+
+
+          </div>
+        </div>
+        
+        
+     
+  <!--    
+    <div class="row">
+            <h1>SKU Summary</h1><br>
+            <h4>SKU Table</h4><br>
+            
+            
+
+              
+                    
+              
+            <table border="1">
+                <tr>
+                    <th>No.</th>
+                    <th>SKU</th>
+                    <th>SKU Description</th>
+                    <th>Standard Crate Quantity</th>
+                    <th>Procured Quantity</th>
+                  </tr>
+                  
+                  <tr>
+                    <td>1</td>
+                    <td>10000298</td>
+                    <td>Mango Banganapalli 1 kg</td>
+                    <td>18000</td>
+                    <td>36190</td>
+                  </tr>
+            </table>
+                
+                
+            
+            
+
+          </div>
+          <div class="row">
+            <h1>Crate List </h1><br>
+            <h4>Crate Table</h4>
+            <br>
+            
+            
+
+            
+            
+           
+                  
+            <table>
+                <tr>
+                    <th>No.</th>
+                    <th>Crate</th>
+                    <th>SKU</th>
+                    <th>Packed Quantity</th>
+                    <th>Crate Weight</th>
+                    <th>Is Final Crate</th>
+                  </tr>
+                    
+                   
+                     
+                  <tr>
+                    <td>1</td>
+                    <td>3e410b75b4</td>
+                    <td>10000298</td>
+                    <td>18100</td>
+                    <td>18100</td>
+                    <td>0</td>
+                  </tr>
+                </table>
+                       
+                  <tr>
+                    <td>2</td>
+                    <td>7c2eba029c</td>
+                    <td>10000298</td>
+                    <td>18090</td>
+                    <td>18090</td>
+                    <td>0</td>
+                  </tr>
+                </table>
+                    
+                
+               
+            
+            
+              </div>
+           
+        -->
+  
+       
+            
+        
+
+    </body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>IOT Python Challenge</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <link rel="stylesheet" href="">
+        <script src="" async defer></script>
+        <style>
+
+          
+          .container-fluid{
+            height:100%;
+            width: 100%;
+            display:grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            row-gap:30px;
+            background-color:#f2eeed;
+        
+        }
+        
+        input[type=text]{
+          border:hidden;
+          width:100%;
+          border-radius:5px;
+          background-color:#dedcdc;
+          height:40px;
+
+        }
+
+        input[type=checkbox]{
+          border:hidden;
+          height:15px;
+          width:30px;
+         
+          border-radius:20px;
+          background-color:#dedcdc;
+         
+
+        }
+
+
+        
+        .tap{
+            width:100%;
+            border:1px solid black;
+        }
+
+        .item{
+          background-color:white;
+        }
+
+        table,td {
+          border: 1px solid black;
+          height:40px;
+         
+        }
+        .tap{
+          width:98%;
+          
+
+        }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="container-fluid">
+          <div class="item">
+
+            {% if data %}
+            {% for d in data %}
+                <form>
+                    <fieldset disabled>
+                <div class="row" style="margin-top:10px">
+                  <div class="col">
+
+                    <label>Hub<span style="color:red">*</span></label><br>
+                    <input type="text" id="disabledTextInput" value={{d.hub}} ><br>
+                    <label>Supplier<span style="color:red">*</span></label><br>
+                    <input type="text" id="disabledTextInput" value={{d.supplier}} ><br>
+                    <label>Supplier Name</label><br>
+                    <input type="text"  id="disabledTextInput"value={{d.supplier_name}} >
+                  </div>
+                  <div class="col">
+                    <label>GRN</label><br>
+                    <input type="text"  id="disabledTextInput" value={{d.grn}} >
+                  </div>
+                </div>
+
+              {% endfor %}
+              {% else %}
+              <p> No Data</p>
+              {% endif %}
+            </fieldset>
+            </form>
+            </div>
+
+
+          <div class="item">
+
+            <h1>SKU Summary</h1><br>
+            <h4>SKU Table</h4><br>
+            
+            {% if data %}
+
+            {% for j in data %}  
+                   {% for i in j.sku_table %} 
+              
+            <table class="tap" align="center"  >
+                <tr>
+                    <td><input type="checkbox" >    No.</td>
+                    <td>SKU</td>
+                    <td>SKU Description</td>
+                    <td>Standard Crate Quantity</td>
+                    <td>Procured Quantity</td>
+                  </tr>
+                  
+                  <tr>
+                    <td><input type="checkbox" >    {{i.idx}}</td>
+                    <td><b>{{i.sku}}</b></td>
+                    <td>{{i.sku_description}}</td>
+                    <td align="right">{{i.standard_crate_quantity}}</td>
+                    <td align="right"><b>{{i.quantity}}</b></td>
+                  </tr>
+            </table>
+                {% endfor%}
+                {% endfor%}
+            
+            {% else %}
+              <p> No Data</p>
+              {% endif %}
+        </div>
+
+
+          <div class="item" >
+
+
+            <h1>Crate List </h1><br>
+            <h4>Crate Table</h4>
+            <br>
+            
+            
+
+            
+            
+            
+            {% for  i in data %} 
+            
+            <table class="tap" align="center">
+              
+                <tr>
+                    <td><input type="checkbox"  style="background-color:#d4d1cb">   No.</td>
+                    <td>Crate</td>
+                    <td>SKU</td>
+                    <td>Packed Quantity</td>
+                    <td>Crate Weight</td>
+                    <td>Is Final Crate</td>
+                  </tr>
+                    
+                  {% for j in i.crate_table %}  
+                  <tr>
+                    <td><input type="checkbox" style="background-color:#d4d1cb" >   {{j.idx}}</td>
+                    <td><b>{{j.crate}}</b></td>
+                    <td>{{j.sku}}</td>
+                    <td align="right">{{j.packed_quantity}}</td>
+                    <td align="right">{{j.crate_weight}}</td>
+                    <td>{{j.is_final_crate}}</td>
+                  </tr>
+                  {% endfor%}
+                </table>
+                    
+                {% endfor%}
+               
+            
+
+
+
+
+
+
+          </div>
+        </div>
+        
+        
+     
+  <!--    
+    <div class="row">
+            <h1>SKU Summary</h1><br>
+            <h4>SKU Table</h4><br>
+            
+            {% if data %}
+
+            {% for j in data %}  
+                   {% for i in j.sku_table %} 
+              
+            <table border="1">
+                <tr>
+                    <th>No.</th>
+                    <th>SKU</th>
+                    <th>SKU Description</th>
+                    <th>Standard Crate Quantity</th>
+                    <th>Procured Quantity</th>
+                  </tr>
+                  
+                  <tr>
+                    <td>{{i.idx}}</td>
+                    <td>{{i.sku}}</td>
+                    <td>{{i.sku_description}}</td>
+                    <td>{{i.standard_crate_quantity}}</td>
+                    <td>{{i.quantity}}</td>
+                  </tr>
+            </table>
+                {% endfor%}
+                {% endfor%}
+            
+            {% else %}
+              <p> No Data</p>
+              {% endif %}
+
+          </div>
+          <div class="row">
+            <h1>Crate List </h1><br>
+            <h4>Crate Table</h4>
+            <br>
+            
+            {% if data %}
+
+            
+            
+           
+                  
+            <table>
+                <tr>
+                    <th>No.</th>
+                    <th>Crate</th>
+                    <th>SKU</th>
+                    <th>Packed Quantity</th>
+                    <th>Crate Weight</th>
+                    <th>Is Final Crate</th>
+                  </tr>
+                    
+                  {% for  i in data %} 
+                  {% for j in i.crate_table %}   
+                  <tr>
+                    <td>{{j.idx}}</td>
+                    <td>{{j.crate}}</td>
+                    <td>{{j.sku}}</td>
+                    <td>{{j.packed_quantity}}</td>
+                    <td>{{j.crate_weight}}</td>
+                    <td>{{j.is_final_crate}}</td>
+                  </tr>
+                </table>
+                    {% endfor%}
+                {% endfor%}
+               
+            
+            {% else %}
+              <p> No Data</p>
+              {% endif %}
+              </div>
+           
+        -->
+  
+       
+            
+        
+
+    </body>
+</html>
